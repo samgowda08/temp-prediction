@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Weather Prediction</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+
+</head>
+
+<body>
+  <div class="container">
+    <nav class="navbar navbar-expand-md fixed-top" id="navbar" data-bs-theme="dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">AI Weather Predictor</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse justify-content-end navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/uploadpage">Upload DataSet </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/#predict-btn">Predict Data</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/manual">How to use</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <br>
+  <div class="mt-5 container text-center" id="main">
+    <h1 class="display-1 my-5 pt-5">AI Weather Predictor</h1>
+    <form class="form-inline mt-3" method="POST" action="{{ url_for('predict') }}">
+      <div class="form-group text-start mb-2">
+        <label for="humidity" class="mr-2 "><h3 class="display-6">Humidity</h3></label>
+        <input type="number" placeholder="Enter the value of Humidity" step="0.01" class="form-control py-2" id="humidity" name="humidity" required>
+      </div>
+      <div class="form-group text-start mb-2">
+        <label for="wind_speed" class="mr-2"><h3 class="display-6">Wind Speed</h3></label>
+        <input type="number" placeholder="Enter the value of wind speed" step="0.01" class="form-control py-2" id="wind_speed" name="wind_speed" required>
+      </div>
+      <div class="d-grid gap-2">
+      <button type="submit" class="btn btn-primary my-4" id="predict-btn">Predict</button>
+    </div>
+    </form>
+  </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
+</html>
